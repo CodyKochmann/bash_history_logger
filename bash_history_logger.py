@@ -1,20 +1,23 @@
 #!/usr/bin/env python
-help_string="""
-history logger to never lose a command entered in the terminal
-author: Cody Kochmann
-last updated: Tue May 5 08:52:55 PDT 2015
-supported opperating systems: OSX
-download the latest version at: https://github.com/CodyKochmann/bash_history_logger
-options:
-    -v --verbose     verbose output
-    -p --print       print the collected command history
-    -h --help        print this help string
-"""
 
 history_path="/Users/$USER/.bash_history"
 log_path = "/Users/$USER/"
 log_name = "command_history.log"
 log_full_path = log_path + log_name
+
+help_string="""
+history logger to never lose a command entered in the terminal
+author: Cody Kochmann
+last updated: Tue May 5 08:52:55 PDT 2015
+version:0.2
+opperating systems: OSX
+latest version: https://github.com/CodyKochmann/bash_history_logger
+options:
+    -v --verbose     verbose output
+    -p --print       print the collected command history
+    -h --help        print this help string
+    -r --recursive   run recursively in a 10 second interval
+"""
 
 from os import popen
 user=(popen("echo $USER").read()).split("\n")[0]
@@ -105,10 +108,22 @@ def sys_command(cmd,return_out=True):
         system(cmd)
 
 
+def main():
+    global VERBOSE
+    history = get_file_text(history_path).split("\n")
+    print len(history)
+    history = remove_empty_strings(history,True)
+    for i in history:
+        if check_for_line(i, log_full_path, VERBOSE) is False:
+            append_line(i, log_full_path, VERBOSE)
 
-history = get_file_text(history_path).split("\n")
-print len(history)
-history = remove_empty_strings(history,True)
-for i in history:
-    if check_for_line(i, log_full_path, VERBOSE) is False:
-        append_line(i, log_full_path, VERBOSE)
+if check_arg("-r","--recursive"):
+    from time import sleep
+    while True:
+        try:
+            main()
+        except:
+            pass
+        sleep(10)
+
+main()
