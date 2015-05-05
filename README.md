@@ -16,3 +16,10 @@ Command Line Options:
 |-h        |--help       | print this help string|
 |-r        |--recursive  | run recursively in a 10 second interval|
 
+
+Change Log:
+
+|Version|Changes|
+|---|-----------|
+|0.2|Added recursive functions for continuous recording.|
+|0.1|Initial build of Command Line interphase.|
