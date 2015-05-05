@@ -12,7 +12,7 @@ options:
 """
 
 history_path="/Users/$USER/.bash_history"
-log_path = "/Users/$USER/Scripts/"
+log_path = "/Users/$USER/"
 log_name = "command_history.log"
 log_full_path = log_path + log_name
 
