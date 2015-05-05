@@ -1,10 +1,11 @@
-bash_history_logger.py
-  - description: history logger to never lose a command entered in the terminal
-  - author: Cody Kochmann
-  - last updated: Tue May 5 08:52:55 PDT 2015
-  - version: 0.2
-  - opperating systems: OSX
-  - latest version: https://github.com/CodyKochmann/bash_history_logger
+|Name|bash_history_logger.py|
+|----|----------------------|
+|description | history logger to never lose a command entered in the terminal|
+|author | Cody Kochmann|
+|last updated | Tue May 5 08:52:55 PDT 2015|
+|version | 0.2|
+|opperating systems | OSX|
+|latest version | https://github.com/CodyKochmann/bash_history_logger|
 
 
 Command Line Options:
